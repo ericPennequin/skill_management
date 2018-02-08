@@ -1,0 +1,93 @@
+
+body {
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    font-family: Helvetica, Arial;;
+}
+#profil-top {
+    background: #000;
+    width: 100%;
+    height: 300px;
+    position: relative;
+}
+#profil-blur {
+    display: block;
+    position: absolute;
+    background: url('https://www.agriwebb.com/wp-content/uploads/2016/06/avatar-default-300x300.jpg') no-repeat; /* DE BASE */
+    background-size: 100%;
+    height: 100%;
+    width: 100%;
+    -webkit-filter: blur(100px);
+    -moz-filter: blur(100px);
+    -o-filter: blur(100px);
+    -ms-filter: blur(100px);
+    filter: blur(100px);
+    z-index: 0;
+}
+#profil-avatar {
+    display: inline-block;
+    background: #CCC;
+    background: url('https://www.agriwebb.com/wp-content/uploads/2016/06/avatar-default-300x300.jpg'); /* DE BASE */
+    background-size: 100%;
+    position: absolute;
+    margin-left: 100px;
+    bottom: -40px;
+    border: 5px solid #FFF;
+    height: 180px;
+    width: 180px;
+    z-index: 20;
+    /* shadow */
+    -moz-box-shadow: 0 0 1px 0 #000000;
+    -webkit-box-shadow: 0 0 1px 0 #000000;
+    -o-box-shadow: 0 0 1px 0 #000000;
+    box-shadow: 0 0 1px 0 #000000;
+    filter:progid:DXImageTransform.Microsoft.Shadow(color=#000000, Direction=NaN, Strength=1);
+
+}
+#profil-avatar img {
+    height: auto;
+    width: 100%;
+}
+#profil-name {
+    position: absolute;
+    bottom: 15px;
+    left: 310px;
+    color: #FFF;
+    font-size: 30px;
+    font-weight: 800;
+    text-shadow: 1px 1px 2px #404040;
+}
+#profil-bottom {
+    background: #EEE;
+    height: 300px;
+    width: 100%;
+    position: relative;
+    z-index: 3;
+    padding-top: 40px;
+}
+
+@media screen and (max-width: 640px) {
+    #profil-top {
+        padding-top: 30px;
+        padding-bottom: 20px;
+        height: inherit;
+    }
+    #profil-avatar {
+        display: block;
+        margin: auto;
+        bottom: inherit;
+        position: relative;
+    }
+    #profil-name {
+        position: relative;
+        bottom: inherit;
+        left: inherit;
+        margin: auto;
+        text-align: center;
+        padding-top: 10px;
+    }
+    #profil-blur {
+        top: 0;
+    }
+}
