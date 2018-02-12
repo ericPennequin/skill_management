@@ -7,5 +7,22 @@
 *.xml
 >>>>>>> master
 *.xml
-.idea/workspace.xml
+<<<<<<< HEAD
+index.php
+.idea/vcs.xml
+Controler/Globals.php
+Controler/Globals.php
 *.xml
+.idea/vcs.xml
+=======
+.idea/workspace.xml
+<<<<<<< HEAD
+*.xml
+=======
+<<<<<<< HEAD
+>>>>>>> 57a0d6d9e0c47206d2c58a4f6160f91693501216
+index.php
+=======
+*.xml
+>>>>>>> headers
+>>>>>>> master
