@@ -66,8 +66,59 @@
     padding: 60px 20px 40px;
 }
 
+#profil-content {
+    padding: 0 80px;
+    margin: auto;
+}
+
+.infos-wrap {
+    margin: 10px auto;
+}
+
+.infos-col {
+    display: inline-block;
+    vertical-align: middle;
+}
+
+.infos-icon {
+    /*background: #ee7930;*/
+    color: #ffffff;
+    border-radius: 100%;
+    height: 4em;
+    width: 4em;
+    margin-right: 10px;
+    text-align: center;
+    /* BG gradient */
+    background: #5e5e5e;
+    background: -moz-linear-gradient(top, #5e5e5e 0%, #3a3a3a 100%);
+    background: -webkit-linear-gradient(top, #5e5e5e 0%,#3a3a3a 100%);
+    background: linear-gradient(to bottom, #5e5e5e 0%,#3a3a3a 100%);
+    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#5e5e5e', endColorstr='#3a3a3a',GradientType=0 );
+}
+
+.icon-bg {
+    display: table;
+    height: 100%;
+    width: 100%;
+}
+
+.icon-wrap {
+    display: table-cell;
+    vertical-align: middle;
+}
+
+.ic-icons {
+    font-size: 30px;
+    vertical-align: -0.3em;
+}
+
+.ic-libelle {
+    font-size: 80%;
+    font-weight: bold;
+}
+
 /* Responsive */
-@media screen and (max-width: 640px) {
+@media screen and (max-width: 767px) {
     #profil-top {
         padding-top: 30px;
         padding-bottom: 20px;
@@ -93,7 +144,12 @@
     #profil-blur {
         top: 0;
     }
+
     #profil-bottom {
         padding: 20px;
+    }
+
+    #profil-content {
+        padding: 0 0px;
     }
 }

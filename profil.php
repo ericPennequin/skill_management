@@ -1,10 +1,18 @@
 <?php
 // Variables de test
 $profilePic = "http://www.gigtime.co/assets/fallback/default_user_avatar_huge.jpg";
-$name = "John Doe";
+$tmp_name = "John Doe";
+$tmp_phone = "0606060606";
+$tmp_mail = "tmp.mail@gmail.com";
+$tmp_etab = "CEFIM";
+$tmp_city = "Tours (37)";
 
 $rootURL = "";
-$pageTitle = "Profil | ${name}";
+$pageTitle = "Profil | ${tmp_name}";
+
+// Includes
+include "./inc/functions.php";
+
 ?>
 <?php include "./inc/header.php" ?>
     <div id="profil-top">
@@ -13,7 +21,7 @@ $pageTitle = "Profil | ${name}";
             <div id="profil-img"></div>
         </div>
         <div id="profil-name">
-            <?= $name ?>
+            <?= $tmp_name ?>
         </div>
     </div>
     <div id="profil-bottom">
@@ -24,8 +32,10 @@ $pageTitle = "Profil | ${name}";
                 <div class="section-content sc-open" id="sc-infos" data-ps-child="infos">
                     <!-- content start -->
                     <div class="row">
-                        <div class="col-md-6" style="background:black;"></div>
-                        <div class="col-md-6" style="background:white;"></div>
+                        <?php displayProfileInfo("Téléphone", $tmp_phone, "fa-phone") ?>
+                        <?php displayProfileInfo("Établissement", $tmp_etab, "fa-building") ?>
+                        <?php displayProfileInfo("Mail", $tmp_mail, "fa-envelope") ?>
+                        <?php displayProfileInfo("Ville", $tmp_city, "fa-home") ?>
                     </div>
                     <!-- content end -->
                 </div>
