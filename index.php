@@ -1,7 +1,7 @@
 <?php
-include 'header.php';
+include 'inc/header.php';
 ?>
 index.
 <?php
-include 'footer.php';
+include 'inc/footer.php';
 ?>

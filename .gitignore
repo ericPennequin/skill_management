@@ -1,4 +1,9 @@
 
+<<<<<<< HEAD
 .idea/workspace.xml
 .idea/workspace.xml
+=======
+*.xml
+*.xml
+>>>>>>> master
 *.xml
