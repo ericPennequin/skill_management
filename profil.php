@@ -1,7 +1,6 @@
 <?php
 // Variables de test
 $profilePic = "http://www.gigtime.co/assets/fallback/default_user_avatar_huge.jpg";
-$profilePic = "https://cloud.netlifyusercontent.com/assets/344dbf88-fdf9-42bb-adb4-46f01eedd629/68dd54ca-60cf-4ef7-898b-26d7cbe48ec7/10-dithering-opt.jpg";
 $name = "John Doe";
 
 $pageTitle = "Profil | ${name}";
@@ -17,8 +16,25 @@ $pageTitle = "Profil | ${name}";
         </div>
     </div>
     <div id="profil-bottom">
-        profil<br/>
-        compétences<br/>
-        projets
+        <div id="profil-content">
+            <section class="ps profil-section" id="ps-infos" data-ps-parent="infos">
+                <h2 class="section-header sh-open">Profil</h2>
+                <div class="section-content sc-open" id="sc-infos" data-ps-child="infos">
+
+                </div>
+            </section>
+            <section class="ps profil-section" id="ps-competences" data-ps-parent="competences">
+                <h2 class="section-header">Compétences</h2>
+                <div class="section-content" id="sc-competences" data-ps-child="competences">
+                    compétence 1 compétence 2
+                </div>
+            </section>
+            <section class="ps profil-section" id="ps-projets" data-ps-parent="projets">
+                <h2 class="section-header">Projets</h2>
+                <div class="section-content" id="sc-projets" data-ps-child="projets">
+                    projet 1, projet 2
+                </div>
+            </section>
+        </div>
     </div>
 <?php include "footer.php" ?>
