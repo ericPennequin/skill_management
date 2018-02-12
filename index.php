@@ -1,4 +1,5 @@
 <?php
+$rootUrl = "";
 include 'inc/header.php';
 ?>
 index.
