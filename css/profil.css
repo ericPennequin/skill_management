@@ -3,14 +3,15 @@ body {
     margin: 0;
     padding: 0;
     width: 100%;
-    font-family: Helvetica, Arial;;
 }
+
 #profil-top {
     background: #000;
     width: 100%;
     height: 300px;
     position: relative;
 }
+
 #profil-blur {
     display: block;
     position: absolute;
@@ -25,6 +26,7 @@ body {
     filter: blur(100px);
     z-index: 0;
 }
+
 #profil-avatar {
     display: inline-block;
     background: #CCC;
@@ -36,19 +38,23 @@ body {
     border: 5px solid #FFF;
     height: 180px;
     width: 180px;
+    overflow: hidden;
     z-index: 20;
     /* shadow */
     -moz-box-shadow: 0 0 1px 0 #000000;
     -webkit-box-shadow: 0 0 1px 0 #000000;
     -o-box-shadow: 0 0 1px 0 #000000;
     box-shadow: 0 0 1px 0 #000000;
-    filter:progid:DXImageTransform.Microsoft.Shadow(color=#000000, Direction=NaN, Strength=1);
+    filter: progid:DXImageTransform.Microsoft.Shadow(color=#000000, Direction=NaN, Strength=1);
+}
 
-}
-#profil-avatar img {
-    height: auto;
+#profil-avatar #profil-img {
+    background: url('https://www.agriwebb.com/wp-content/uploads/2016/06/avatar-default-300x300.jpg') no-repeat center; /* DE BASE */
+    background-size: cover;
     width: 100%;
+    height: 100%;
 }
+
 #profil-name {
     position: absolute;
     bottom: 15px;
@@ -58,6 +64,7 @@ body {
     font-weight: 800;
     text-shadow: 1px 1px 2px #404040;
 }
+
 #profil-bottom {
     background: #EEE;
     height: 300px;
@@ -73,12 +80,14 @@ body {
         padding-bottom: 20px;
         height: inherit;
     }
+
     #profil-avatar {
         display: block;
         margin: auto;
         bottom: inherit;
         position: relative;
     }
+
     #profil-name {
         position: relative;
         bottom: inherit;
@@ -87,6 +96,7 @@ body {
         text-align: center;
         padding-top: 10px;
     }
+
     #profil-blur {
         top: 0;
     }

@@ -1,40 +1,24 @@
 <?php
-$profil_pic = "http://www.gigtime.co/assets/fallback/default_user_avatar_huge.jpg";
+// Variables de test
+$profilePic = "http://www.gigtime.co/assets/fallback/default_user_avatar_huge.jpg";
+$profilePic = "https://cloud.netlifyusercontent.com/assets/344dbf88-fdf9-42bb-adb4-46f01eedd629/68dd54ca-60cf-4ef7-898b-26d7cbe48ec7/10-dithering-opt.jpg";
 $name = "John Doe";
-?>
-<!DOCTYPE html>
-<html>
-<head>
-    <title>
-        Profil | <?= $name ?>
-    </title>
-    <link rel="stylesheet" media="screen" type="text/css" title="profil" href="css/profil.css"/>
-    <style id="style-profil">
-        #profil-top {
-            background: url('<?= $profil_pic ?>') repeat;
-            background-size: 1px;
-        }
 
-        #profil-blur {
-            background: url('<?= $profil_pic ?>') no-repeat 50%;
-            background-size: 100%;
-        }
-    </style>
-</head>
-<body>
-<div id="profil-top">
-    <div id="profil-blur"></div>
-    <div id="profil-avatar">
-        <img src="<?= $profil_pic ?>"/>
+$pageTitle = "Profil | ${name}";
+?>
+<?php include "header.php" ?>
+    <div id="profil-top">
+        <div id="profil-blur"></div>
+        <div id="profil-avatar">
+            <div id="profil-img"></div>
+        </div>
+        <div id="profil-name">
+            <?= $name ?>
+        </div>
     </div>
-    <div id="profil-name">
-        <?= $name ?>
+    <div id="profil-bottom">
+        profil<br/>
+        compétences<br/>
+        projets
     </div>
-</div>
-<div id="profil-bottom">
-    profil<br/>
-    compétences<br/>
-    projets
-</div>
-</body>
-</html>
+<?php include "footer.php" ?>
