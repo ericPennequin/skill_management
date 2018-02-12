@@ -6,3 +6,4 @@ index.
 <?php
 include 'inc/footer.php';
 ?>
+
