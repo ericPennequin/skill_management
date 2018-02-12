@@ -2,6 +2,10 @@
     --orange_cefim: #f37e19;
 }
 
-a {
+a, a:hover, a:visited {
     color: #f37e19;
+}
+
+a.tel-mail {
+    text-decoration: none;
 }

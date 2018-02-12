@@ -91,9 +91,9 @@
     /* BG gradient */
     background: #5e5e5e;
     background: -moz-linear-gradient(top, #5e5e5e 0%, #3a3a3a 100%);
-    background: -webkit-linear-gradient(top, #5e5e5e 0%,#3a3a3a 100%);
-    background: linear-gradient(to bottom, #5e5e5e 0%,#3a3a3a 100%);
-    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#5e5e5e', endColorstr='#3a3a3a',GradientType=0 );
+    background: -webkit-linear-gradient(top, #5e5e5e 0%, #3a3a3a 100%);
+    background: linear-gradient(to bottom, #5e5e5e 0%, #3a3a3a 100%);
+    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#5e5e5e', endColorstr='#3a3a3a', GradientType=0);
 }
 
 .icon-bg {
@@ -115,6 +115,25 @@
 .ic-libelle {
     font-size: 80%;
     font-weight: bold;
+    text-transform: uppercase;
+    color: #585858;
+}
+
+/* Accordéon */
+.ps-open .st-open, .ps-closed .st-close {
+    display: none;
+}
+
+.section-header {
+    cursor: pointer;
+    position: relative;
+}
+
+.section-toggle {
+    position: absolute;
+    font-size: 50%;
+    right: 10px;
+    top: 10px;
 }
 
 /* Responsive */

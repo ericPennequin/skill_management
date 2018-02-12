@@ -26,7 +26,7 @@ function displayProfileInfo($label, $value, $icon)
             if ($label === "Mail") {
                 ?>
                 <div class="ic-valeur">
-                    <a href="mailto:<?= $value ?>">
+                    <a href="mailto:<?= $value ?>" class="tel-mail">
                         <?= $value ?>
                     </a>
                 </div>
@@ -34,7 +34,7 @@ function displayProfileInfo($label, $value, $icon)
             } else if ($label === "Téléphone") {
                 ?>
                 <div class="ic-valeur">
-                    <a href="tel:<?= displayPhoneNumber($value, "indicatif") ?>">
+                    <a href="tel:<?= displayPhoneNumber($value, "indicatif") ?>" class="tel-mail">
                         <?= displayPhoneNumber($value, "spaces") ?>
                     </a>
                 </div>
