@@ -1,6 +1,6 @@
 <?php
-$profil_pic = "https://pbs.twimg.com/profile_images/874276197357596672/kUuht00m_400x400.jpg";
-$name = "Tonald Drump";
+$profil_pic = "http://www.gigtime.co/assets/fallback/default_user_avatar_huge.jpg";
+$name = "John Doe";
 ?>
 <!DOCTYPE html>
 <html>
@@ -8,13 +8,16 @@ $name = "Tonald Drump";
     <title>
         Profil | <?= $name ?>
     </title>
-    <style id="style-profil"> /* généré par php */
+    <link rel="stylesheet" media="screen" type="text/css" title="profil" href="css/profil.css"/>
+    <style id="style-profil">
         #profil-top {
             background: url('<?= $profil_pic ?>') repeat;
             background-size: 1px;
         }
-        #blur {
-            background: url('<?= $profil_pic ?>');
+
+        #profil-blur {
+            background: url('<?= $profil_pic ?>') no-repeat 50%;
+            background-size: 100%;
         }
     </style>
 </head>
