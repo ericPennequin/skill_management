@@ -4,6 +4,8 @@
 
 a, a:hover, a:visited {
     color: #f37e19;
+    -webkit-transition: all .1s ease-in;
+    transition: all .1s ease-in;
 }
 
 a.tel-mail {

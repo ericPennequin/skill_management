@@ -78,6 +78,7 @@
 .infos-col {
     display: inline-block;
     vertical-align: middle;
+    max-width: 70%;
 }
 
 .infos-icon {
@@ -117,6 +118,126 @@
     font-weight: bold;
     text-transform: uppercase;
     color: #585858;
+    text-shadow: 1px 1px 0px #ffffff;
+}
+
+.ic-valeur {
+    max-width: 100%;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.competence-tag {
+    display: inline-block;
+    background: #495057 !important;
+    border-radius: 16px;
+    color: #FFFFFF !important;
+    font-size: 14px;
+    /*padding: .25rem .5rem;*/
+    padding: 2px 8px;
+    margin: 0 8px 8px 0;
+}
+
+.competence-tag:last-child {
+    margin-right: 0;
+}
+
+.competence-tag:hover {
+    background-color: #fa5252 !important;;
+    color: #FFFFFF !important;
+    text-decoration: none;
+}
+
+.profil-projet {
+    border-bottom: 1px solid #000000;
+    padding-bottom: 20px;
+    margin-bottom: 20px;
+}
+
+.profil-projet:last-child {
+    border: none;
+    padding-bottom: 20px;
+    margin-bottom: 0;
+}
+
+h3.projet-header {
+    text-transform: uppercase;
+    font-size: 1.5rem;
+}
+
+.projet-subtitle {
+    display: none;
+}
+
+p.projet-description {
+    text-align: justify;
+    margin-bottom: 0.5rem;
+}
+
+.description-start.description-hidden:after {
+    content: "...";
+}
+
+.description-end {
+    display: none;
+}
+
+.pf {
+    display: inline-block;
+    background: #ffffff !important;
+    border: 1px solid #dcdcdc;
+    border-radius: 16px;
+    color: inherit !important;
+    padding: 2px 8px;
+    margin: 0 8px 8px 0;
+}
+
+.pf:hover, .pf:hover > svg {
+    background: #495056 !important;
+    color: #FFFFFF !important;
+    text-decoration: none;
+}
+
+.pf > svg {
+    margin-right: 5px;
+}
+
+.pf > .fa-file {
+    /*color: #ff0000;*/
+}
+
+.pf > .fa-file-word {
+    color: #2d5898;
+}
+
+.pf > .fa-file-pdf {
+    color: #ff0000;
+}
+
+.pf > .fa-file-image {
+    /*color: #ff0000;*/
+}
+
+.pf:before {
+    font-family: "Font Awesome 5 Regular";
+    display: none;
+}
+
+.pf-default:before {
+    content: "\f15b";
+}
+
+.pf-word:before {
+    content: "\f1c2";
+}
+
+.pf-pdf:before {
+    content: "\f1c1";
+}
+
+.pf-img:before {
+    content: "\f1c5";
 }
 
 /* Accordéon */
@@ -127,6 +248,7 @@
 .section-header {
     cursor: pointer;
     position: relative;
+    margin: 0.8rem 0;
 }
 
 .section-toggle {
