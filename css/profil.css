@@ -251,6 +251,16 @@ p.projet-description {
     margin: 0.8rem 0;
 }
 
+.section-count {
+    padding: 2px 8px;
+    font-size: 11px;
+    background: #f37e19;
+    border-radius: 16px;
+    color: #FFFFFF;
+    vertical-align: middle;
+    margin-right: 5px;
+}
+
 .section-toggle {
     position: absolute;
     font-size: 50%;
@@ -264,6 +274,8 @@ p.projet-description {
         padding-top: 30px;
         padding-bottom: 20px;
         height: inherit;
+        max-height: 285px;
+        overflow: hidden;
     }
 
     #profil-avatar {
@@ -287,10 +299,22 @@ p.projet-description {
     }
 
     #profil-bottom {
-        padding: 20px;
+        padding: 0.1px 20px 20px;
     }
 
     #profil-content {
         padding: 0 0px;
+    }
+
+    .section-header {
+        text-align: center;
+        border-bottom: 1px solid #d18a2e;
+        padding-bottom: 0.8rem;
+        /* Shadow */
+        -moz-box-shadow: 0 1px 0 0 #FFFFFF;
+        -webkit-box-shadow: 0 1px 0 0 #FFFFFF;
+        -o-box-shadow: 0 1px 0 0 #FFFFFF;
+        box-shadow: 0 1px 0 0 #FFFFFF;
+        filter: progid:DXImageTransform.Microsoft.Shadow(color=#FFFFFF, Direction=180, Strength=0);
     }
 }

@@ -130,7 +130,7 @@ function displayProjects(array $projects)
                  data-projet-title="<?= $project["name"] ?>"
                  id="pp-<?= $project["id_project"] ?>">
                 <h3 class="projet-header"><?= $project["name"] ?></h3>
-                <div class="projet-location">LJK<?= $project["id_establishment"] ?>JYGHB</div>
+                <div class="projet-location">{{ETABLISSEMENT <?= $project["id_establishment"] ?>}}</div>
                 <p class="projet-description">
                     <? displayDescription($project["description"], $project["id_project"]) ?>
                 </p>

@@ -11,7 +11,7 @@ if (!isset($rootUrl))
 <html>
 <head>
     <title><?= $pageTitle ?></title>
-    <link rel="icon" type="image/png" href="../favicon.png"/>
+    <link rel="icon" type="image/png" href="<?=$rootUrl?>favicon.png"/>
     <!--[if IE]>
     <link rel="shortcut icon" type="image/x-icon" href="<?=$rootUrl?>favicon.ico"/><![endif]-->
     <script src="<?=$rootUrl?>lib/jquery-3.2.1/jquery-3.2.1.js"></script>
