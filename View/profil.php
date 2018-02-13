@@ -117,14 +117,14 @@ $tmp_projects = array($p1, $p2, $p3);
 
 ////////////////////////////////
 
-$rootURL = "";
+$rootUrl = "../";
 $pageTitle = "Profil | ${tmp_name}";
 
 // Includes
-include "./inc/functions.php";
+include "../inc/functions.php";
 
 ?>
-<?php include "./inc/header.php" ?>
+<?php include "../inc/header.php" ?>
     <script>
         FontAwesomeConfig = {searchPseudoElements: true};
     </script>
@@ -161,7 +161,8 @@ include "./inc/functions.php";
                 </div>
             </section>
             <!-- Compétences -->
-            <section class="ps ps-closed profil-section" id="ps-competences" data-ps-parent="competences">
+            <section class="ps ps-closed profil-section" id="ps-competences" data-ps-parent="competences"
+                     style="visibility:hidden;display:none;">
                 <h2 class="section-header">Compétences <span class="section-count"><?= count($tmp_skills) ?></span>
                     <span class="section-toggle st-open">
                         <i class="fas fa-chevron-down sh-icons"></i>
@@ -177,7 +178,7 @@ include "./inc/functions.php";
                 </div>
             </section>
             <!-- Projets -->
-            <section class="ps ps-closed profil-section" id="ps-projets" data-ps-parent="projets">
+            <section class="ps ps-open profil-section" id="ps-projets" data-ps-parent="projets">
                 <h2 class="section-header">Projets <span class="section-count"><?= count($tmp_projects) ?></span>
                     <span class="section-toggle st-open">
                         <i class="fas fa-chevron-down sh-icons"></i>
@@ -186,7 +187,7 @@ include "./inc/functions.php";
                         <i class="fas fa-chevron-up sh-icons"></i>
                     </span>
                 </h2>
-                <div class="section-content" id="sc-projets" data-ps-child="projets" style="display:none;">
+                <div class="section-content" id="sc-projets" data-ps-child="projets">
                     <!-- content start -->
                     <?php displayProjects($tmp_projects) ?>
                     <!-- content end -->

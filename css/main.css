@@ -2,6 +2,12 @@
     --orange_cefim: #f37e19;
 }
 
+html, body {
+    /* min-height: 100%; */
+    height: 100%;
+    background: #EEE;
+}
+
 a, a:hover, a:visited {
     color: #f37e19;
     -webkit-transition: all .1s ease-in;
