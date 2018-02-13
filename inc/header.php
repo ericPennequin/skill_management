@@ -11,13 +11,15 @@ if (!isset($rootUrl))
 <html>
 <head>
     <title><?= $pageTitle ?></title>
-    <link rel="icon" type="image/png" href="../favicon.png"/>
+    <link rel="icon" type="image/png" href="<?=$rootUrl?>favicon.png"/>
     <!--[if IE]>
     <link rel="shortcut icon" type="image/x-icon" href="<?=$rootUrl?>favicon.ico"/><![endif]-->
     <script src="<?=$rootUrl?>lib/jquery-3.2.1/jquery-3.2.1.js"></script>
     <script defer src="<?=$rootUrl?>lib/fontawesome-free-5.0.6/js/fontawesome-all.js"></script>
     <script src="<?=$rootUrl?>lib/bootstrap-4.0.0-dist/js/bootstrap.js"></script>
     <link rel="stylesheet" href="<?=$rootUrl?>lib/bootstrap-4.0.0-dist/css/bootstrap.css">
+    <link rel="stylesheet" href="<?=$rootUrl?>css/main.css">
+    <script src="<?=$rootUrl?>js/profil.js"></script>
 
     <?php // PAGE PROFIL
     if ($currentPageName === "profil.php") {

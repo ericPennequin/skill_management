@@ -1,0 +1,320 @@
+#profil-top {
+    background: #000;
+    width: 100%;
+    height: 300px;
+    position: relative;
+}
+
+#profil-blur {
+    display: block;
+    position: absolute;
+    background: url('https://www.agriwebb.com/wp-content/uploads/2016/06/avatar-default-300x300.jpg') no-repeat; /* DE BASE */
+    background-size: 100%;
+    height: 100%;
+    width: 100%;
+    -webkit-filter: blur(100px);
+    -moz-filter: blur(100px);
+    -o-filter: blur(100px);
+    -ms-filter: blur(100px);
+    filter: blur(100px);
+    z-index: 0;
+}
+
+#profil-avatar {
+    display: inline-block;
+    background: #CCC;
+    background: url('https://www.agriwebb.com/wp-content/uploads/2016/06/avatar-default-300x300.jpg'); /* DE BASE */
+    background-size: 100%;
+    position: absolute;
+    margin-left: 100px;
+    bottom: -40px;
+    border: 5px solid #FFF;
+    height: 180px;
+    width: 180px;
+    overflow: hidden;
+    z-index: 20;
+    /* shadow */
+    -moz-box-shadow: 0 0 1px 0 #000000;
+    -webkit-box-shadow: 0 0 1px 0 #000000;
+    -o-box-shadow: 0 0 1px 0 #000000;
+    box-shadow: 0 0 1px 0 #000000;
+    filter: progid:DXImageTransform.Microsoft.Shadow(color=#000000, Direction=NaN, Strength=1);
+}
+
+#profil-avatar #profil-img {
+    background: url('https://www.agriwebb.com/wp-content/uploads/2016/06/avatar-default-300x300.jpg') no-repeat center; /* DE BASE */
+    background-size: cover;
+    width: 100%;
+    height: 100%;
+}
+
+#profil-name {
+    position: absolute;
+    bottom: 15px;
+    left: 310px;
+    color: #FFF;
+    font-size: 30px;
+    font-weight: 700;
+    text-shadow: 1px 1px 2px #404040;
+}
+
+#profil-bottom {
+    background: #EEE;
+    width: 100%;
+    position: relative;
+    z-index: 3;
+    padding: 60px 20px 40px;
+}
+
+#profil-content {
+    padding: 0 80px;
+    margin: auto;
+}
+
+.infos-wrap {
+    margin: 10px auto;
+}
+
+.infos-col {
+    display: inline-block;
+    vertical-align: middle;
+    max-width: 70%;
+}
+
+.infos-icon {
+    /*background: #ee7930;*/
+    color: #ffffff;
+    border-radius: 100%;
+    height: 4em;
+    width: 4em;
+    margin-right: 10px;
+    text-align: center;
+    /* BG gradient */
+    background: #5e5e5e;
+    background: -moz-linear-gradient(top, #5e5e5e 0%, #3a3a3a 100%);
+    background: -webkit-linear-gradient(top, #5e5e5e 0%, #3a3a3a 100%);
+    background: linear-gradient(to bottom, #5e5e5e 0%, #3a3a3a 100%);
+    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#5e5e5e', endColorstr='#3a3a3a', GradientType=0);
+}
+
+.icon-bg {
+    display: table;
+    height: 100%;
+    width: 100%;
+}
+
+.icon-wrap {
+    display: table-cell;
+    vertical-align: middle;
+}
+
+.ic-icons {
+    font-size: 30px;
+    vertical-align: -0.3em;
+}
+
+.ic-libelle {
+    font-size: 80%;
+    font-weight: bold;
+    text-transform: uppercase;
+    color: #585858;
+    text-shadow: 1px 1px 0px #ffffff;
+}
+
+.ic-valeur {
+    max-width: 100%;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.competence-tag {
+    display: inline-block;
+    background: #495057 !important;
+    border-radius: 16px;
+    color: #FFFFFF !important;
+    font-size: 14px;
+    /*padding: .25rem .5rem;*/
+    padding: 2px 8px;
+    margin: 0 8px 8px 0;
+}
+
+.competence-tag:last-child {
+    margin-right: 0;
+}
+
+.competence-tag:hover {
+    background-color: #fa5252 !important;;
+    color: #FFFFFF !important;
+    text-decoration: none;
+}
+
+.profil-projet {
+    border-bottom: 1px solid #000000;
+    padding-bottom: 20px;
+    margin-bottom: 20px;
+}
+
+.profil-projet:last-child {
+    border: none;
+    padding-bottom: 20px;
+    margin-bottom: 0;
+}
+
+h3.projet-header {
+    text-transform: uppercase;
+    font-size: 1.5rem;
+}
+
+.projet-subtitle {
+    display: none;
+}
+
+p.projet-description {
+    text-align: justify;
+    margin-bottom: 0.5rem;
+}
+
+.description-start.description-hidden:after {
+    content: "...";
+}
+
+.description-end {
+    display: none;
+}
+
+.pf {
+    display: inline-block;
+    background: #ffffff !important;
+    border: 1px solid #dcdcdc;
+    border-radius: 16px;
+    color: inherit !important;
+    padding: 2px 8px;
+    margin: 0 8px 8px 0;
+}
+
+.pf:hover, .pf:hover > svg {
+    background: #495056 !important;
+    color: #FFFFFF !important;
+    text-decoration: none;
+}
+
+.pf > svg {
+    margin-right: 5px;
+}
+
+.pf > .fa-file {
+    /*color: #ff0000;*/
+}
+
+.pf > .fa-file-word {
+    color: #2d5898;
+}
+
+.pf > .fa-file-pdf {
+    color: #ff0000;
+}
+
+.pf > .fa-file-image {
+    /*color: #ff0000;*/
+}
+
+.pf:before {
+    font-family: "Font Awesome 5 Regular";
+    display: none;
+}
+
+.pf-default:before {
+    content: "\f15b";
+}
+
+.pf-word:before {
+    content: "\f1c2";
+}
+
+.pf-pdf:before {
+    content: "\f1c1";
+}
+
+.pf-img:before {
+    content: "\f1c5";
+}
+
+/* Accordéon */
+.ps-open .st-open, .ps-closed .st-close {
+    display: none;
+}
+
+.section-header {
+    cursor: pointer;
+    position: relative;
+    margin: 0.8rem 0;
+}
+
+.section-count {
+    padding: 2px 8px;
+    font-size: 11px;
+    background: #f37e19;
+    border-radius: 16px;
+    color: #FFFFFF;
+    vertical-align: middle;
+    margin-right: 5px;
+}
+
+.section-toggle {
+    position: absolute;
+    font-size: 50%;
+    right: 10px;
+    top: 10px;
+}
+
+/* Responsive */
+@media screen and (max-width: 767px) {
+    #profil-top {
+        padding-top: 30px;
+        padding-bottom: 20px;
+        height: inherit;
+        max-height: 285px;
+        overflow: hidden;
+    }
+
+    #profil-avatar {
+        display: block;
+        margin: auto;
+        bottom: inherit;
+        position: relative;
+    }
+
+    #profil-name {
+        position: relative;
+        bottom: inherit;
+        left: inherit;
+        margin: auto;
+        text-align: center;
+        padding-top: 10px;
+    }
+
+    #profil-blur {
+        top: 0;
+    }
+
+    #profil-bottom {
+        padding: 0.1px 20px 20px;
+    }
+
+    #profil-content {
+        padding: 0 0px;
+    }
+
+    .section-header {
+        text-align: center;
+        border-bottom: 1px solid #d18a2e;
+        padding-bottom: 0.8rem;
+        /* Shadow */
+        -moz-box-shadow: 0 1px 0 0 #FFFFFF;
+        -webkit-box-shadow: 0 1px 0 0 #FFFFFF;
+        -o-box-shadow: 0 1px 0 0 #FFFFFF;
+        box-shadow: 0 1px 0 0 #FFFFFF;
+        filter: progid:DXImageTransform.Microsoft.Shadow(color=#FFFFFF, Direction=180, Strength=0);
+    }
+}

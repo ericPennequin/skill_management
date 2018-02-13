@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 
 *.xml
 *.xml
@@ -14,3 +15,6 @@ Controler/Globals.php
 >>>>>>> 57a0d6d9e0c47206d2c58a4f6160f91693501216
 index.php
 *.xml
+=======
+*.xml
+>>>>>>> master
