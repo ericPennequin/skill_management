@@ -32,7 +32,6 @@ $tmp_skills = array(
     21 => "qsdf",
     22 => "qsdf"
 );
-
 // PROJET 1
 $project1_skills = array(
     0 => "HTML",
@@ -116,8 +115,19 @@ $p3 = array(
 $tmp_projects = array($p1, $p2, $p3);
 
 ////////////////////////////////
+////////////////////////////////
+////////////////////////////////
+///
+if (isset($_GET['id']))
+    $profilID = $_GET['id'];
+else
+    $profilID = "ERROR";
 
-$rootUrl = "../";
+$url = $_SERVER['REQUEST_URI'];
+if (substr($url,-1)=="/")
+    $rootUrl = "../..";
+else
+    $rootUrl = "..";
 $pageTitle = "Profil | ${tmp_name}";
 
 // Includes
@@ -125,6 +135,7 @@ include "../inc/functions.php";
 
 ?>
 <?php include "../inc/header.php" ?>
+    <h1><?= $profilID ?></h1>
     <script>
         FontAwesomeConfig = {searchPseudoElements: true};
     </script>
