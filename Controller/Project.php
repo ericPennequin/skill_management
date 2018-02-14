@@ -6,6 +6,9 @@
  * Time: 14:16
  */
 
+require "SkillsList.php";
+require "AttachmentsList.php";
+
 class Project
 {
     public $id;
@@ -50,7 +53,8 @@ class Project
         $this->description = $array['description'];
         $this->status = $array['status'];
 
-        $this->skills = [];
-        $this->data = [];
+        $this->skills = new SkillsList($array["id_establishment"]);
+
+        $this->data = new AttachmentsList($this->id);
     }
 }

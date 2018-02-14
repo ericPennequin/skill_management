@@ -28,7 +28,6 @@ class ProjectsList
         $_REQUEST['command'] = "getProjectsList";
         $_REQUEST['id_establishment'] = $this->idEstablishment;
         $result = array();
-        echo "iodjsfdknsr";
         include "../Model/Querys.php";
 
         $list = [];

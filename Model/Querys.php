@@ -204,6 +204,74 @@ if ($data['command'] == 'getProject') {
     }
 }
 
+if ($data['command'] == 'getAttachmentsList') {
+    $id_project = $data['id_project'];
+
+    try {
+        $stmt = $dbh->prepare("SELECT id_data FROM data WHERE id_project=?");
+        $stmt->execute(array($id_project));
+
+        while ($row = $stmt->fetch()) {
+            $result[] = $row['id_data'];
+        }
+        return $result;
+    } catch (Exception $e) {
+        die('Erreur: ' . $e->getMessage());
+    }
+}
+
+
+if ($data['command'] == 'getAttachment') {
+    $id_attachment = $data['id_attachment'];
+
+    try {
+        $stmt = $dbh->prepare("SELECT * FROM data WHERE id_data=?");
+        $stmt->execute(array($id_attachment));
+
+        $result = $stmt->fetch();
+
+        return $result;
+    } catch (Exception $e) {
+        die('Erreur: ' . $e->getMessage());
+    }
+}
+
+
+if ($data['command'] == 'getSkillsList') {
+    $id_project = $data['id_project'];
+
+    try {
+        $stmt = $dbh->prepare("SELECT id_skill FROM link_project_skill WHERE id_project=?");
+        $stmt->execute(array($id_project));
+
+        while ($row = $stmt->fetch()) {
+            $result[] = $row['id_skill'];
+        }
+        return $result;
+    } catch (Exception $e) {
+        die('Erreur: ' . $e->getMessage());
+    }
+}
+
+
+if ($data['command'] == 'getSkill') {
+    $id_skill = $data['id_skill'];
+
+    try {
+        $stmt = $dbh->prepare("SELECT skill.id_skill, name, link_project_skill.id_project
+            FROM skill
+			JOIN link_project_skill ON skill.id_skill=link_project_skill.id_skill
+			WHERE skill.id_skill=?");
+        $stmt->execute(array($id_skill));
+
+        $result = $stmt->fetch();
+
+        return $result;
+    } catch (Exception $e) {
+        die('Erreur: ' . $e->getMessage());
+    }
+}
+
 /** Modification du profil user
  * Return void
  * TEST OK
