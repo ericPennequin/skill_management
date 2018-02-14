@@ -3,6 +3,9 @@
   <component name="ChangeListManager">
     <list default="true" id="a3632852-96b5-4ade-95ec-527e6ffa51d9" name="Default" comment="">
 <<<<<<< HEAD
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+=======
+<<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
@@ -30,6 +33,7 @@
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
       <change beforePath="$PROJECT_DIR$/inc/header.php" afterPath="$PROJECT_DIR$/inc/header.php" />
 >>>>>>> master
+>>>>>>> master
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -39,6 +43,9 @@
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
   <component name="FileEditorManager">
+<<<<<<< HEAD
+    <leaf SIDE_TABS_SIZE_LIMIT_KEY="300" />
+=======
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
@@ -125,6 +132,7 @@
         <option value="CSS File" />
       </list>
     </option>
+>>>>>>> master
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
@@ -150,8 +158,12 @@
 >>>>>>> master
 =======
         <option value="$PROJECT_DIR$/index.php" />
+<<<<<<< HEAD
+        <option value="$PROJECT_DIR$/Model/Querys.php" />
+=======
         <option value="$PROJECT_DIR$/css/main.css" />
         <option value="$PROJECT_DIR$/inc/header.php" />
+>>>>>>> master
 >>>>>>> master
       </list>
     </option>
@@ -164,10 +176,9 @@
   </component>
   <component name="PhpWorkspaceProjectConfiguration" backward_compatibility_performed="true" />
   <component name="ProjectFrameBounds" fullScreen="true">
-    <option name="x" value="258" />
-    <option name="y" value="206" />
-    <option name="width" value="1162" />
-    <option name="height" value="618" />
+    <option name="y" value="23" />
+    <option name="width" value="1440" />
+    <option name="height" value="835" />
   </component>
 <<<<<<< HEAD
   <component name="ProjectLevelVcsManager" settingsEditedManually="true">
@@ -392,6 +403,9 @@
   </component>
   <component name="TimeTrackingManager">
 <<<<<<< HEAD
+    <option name="totallyTimeSpent" value="25565000" />
+=======
+<<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
@@ -415,10 +429,10 @@
     <option name="totallyTimeSpent" value="2179000" />
 >>>>>>> headers
 >>>>>>> master
+>>>>>>> master
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="0" width="1440" height="900" extended-state="0" />
-    <editor active="true" />
     <layout>
 <<<<<<< HEAD
 <<<<<<< HEAD
@@ -484,7 +498,7 @@
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Capture Tool" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
       <window_info id="Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.24606581" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.24606581" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
@@ -570,6 +584,8 @@
         </state>
       </provider>
     </entry>
+<<<<<<< HEAD
+=======
     <entry file="file://$PROJECT_DIR$/inc/pdo.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="60">
@@ -585,6 +601,7 @@
       </provider>
     </entry>
 <<<<<<< HEAD
+>>>>>>> master
     <entry file="file://$PROJECT_DIR$/Controler/Globals.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="120">
@@ -593,6 +610,8 @@
         </state>
       </provider>
     </entry>
+<<<<<<< HEAD
+=======
     <entry file="file://$PROJECT_DIR$/Model/Querys.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="232">
@@ -609,6 +628,7 @@
     </entry>
 =======
 >>>>>>> headers
+>>>>>>> master
     <entry file="file://$PROJECT_DIR$/index.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="90">
@@ -741,6 +761,63 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/inc/pdo.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="120">
+          <caret line="8" column="5" lean-forward="true" selection-start-line="8" selection-start-column="5" selection-end-line="8" selection-end-column="5" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Model/Querys.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="3645">
+          <caret line="330" column="0" lean-forward="true" selection-start-line="330" selection-start-column="0" selection-end-line="330" selection-end-column="0" />
+          <folding>
+            <element signature="e#191#719#0#PHP" expanded="false" />
+            <element signature="e#1545#1750#0#PHP" expanded="false" />
+            <element signature="e#2845#3222#0#PHP" expanded="false" />
+            <element signature="e#4040#4574#0#PHP" expanded="false" />
+            <element signature="e#5894#6183#0#PHP" expanded="false" />
+            <element signature="e#6813#7263#0#PHP" expanded="false" />
+            <element signature="e#7734#7868#0#PHP" expanded="false" />
+            <element signature="e#8140#8211#0#PHP" expanded="false" />
+            <marker date="1518527892850" expanded="true" signature="887:952" ph="SELECT searc... search" />
+            <marker date="1518527892850" expanded="true" signature="1057:1203" ph="SELECT * FRO... person" />
+            <marker date="1518527892850" expanded="true" signature="1897:2109" ph="SELECT FROM person" />
+            <marker date="1518527892850" expanded="true" signature="2177:2245" ph="SELECT name,... project" />
+            <marker date="1518527892850" expanded="true" signature="2316:2368" ph="SELECT data data" />
+            <marker date="1518527892850" expanded="true" signature="2441:2511" ph="SELECT id_sk... link_project_skill" />
+            <marker date="1518527892850" expanded="true" signature="2643:2706" ph="SELECT id_sk... skill" />
+            <marker date="1518527892850" expanded="true" signature="3703:3775" ph="INSERT INTO establishment... " />
+            <marker date="1518527892850" expanded="true" signature="3909:4031" ph="SELECT estab... establishment" />
+            <marker date="1518527892850" expanded="true" signature="4086:4258" ph="UPDATE person... " />
+            <marker date="1518527892850" expanded="true" signature="4086:4278" ph="UPDATE person... " />
+            <marker date="1518527892850" expanded="true" signature="4608:4916" ph="UPDATE person... " />
+            <marker date="1518527892850" expanded="true" signature="4608:4925" ph="UPDATE person... " />
+            <marker date="1518527892850" expanded="true" signature="4746:4893" ph="SELECT estab... establishment" />
+            <marker date="1518527892850" expanded="true" signature="5354:5489" ph="INSERT INTO project... " />
+            <marker date="1518527892850" expanded="true" signature="5525:5588" ph="SELECT id_pr... project" />
+            <marker date="1518527892850" expanded="true" signature="5725:5882" ph="INSERT INTO link_project_skill... " />
+            <marker date="1518527892850" expanded="true" signature="5725:5883" ph="INSERT INTO link_project_skill... " />
+            <marker date="1518527892850" expanded="true" signature="5810:5881" ph="SELECT skill... skill" />
+            <marker date="1518527892850" expanded="true" signature="6632:6668" ph="UPDATE project... " />
+            <marker date="1518527892850" expanded="true" signature="6632:6714" ph="UPDATE project... " />
+            <marker date="1518527892850" expanded="true" signature="6632:6749" ph="UPDATE project... " />
+            <marker date="1518527892850" expanded="true" signature="6632:6774" ph="UPDATE project... " />
+            <marker date="1518527892850" expanded="true" signature="6632:6781" ph="UPDATE project... " />
+            <marker date="1518527892850" expanded="true" signature="6632:6805" ph="UPDATE project... " />
+            <marker date="1518527892850" expanded="true" signature="7093:7249" ph="INSERT INTO link_project_skill... " />
+            <marker date="1518527892850" expanded="true" signature="7177:7248" ph="SELECT skill... skill" />
+            <marker date="1518527892850" expanded="true" signature="7577:7667" ph="INSERT INTO person... " />
+            <marker date="1518527892850" expanded="true" signature="7588:7667" ph="UPDATE reservation... " />
+            <marker date="1518527892850" expanded="true" signature="8023:8068" ph="UPDATE person... " />
+            <marker date="1518527892850" expanded="true" signature="8023:8073" ph="UPDATE person... " />
+            <marker date="1518527892850" expanded="true" signature="8029:8037" ph="INSERT INTO person... " />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/index.php">
       <provider selected="true" editor-type-id="text-editor">
 <<<<<<< HEAD
@@ -774,6 +851,9 @@
 >>>>>>> master
 =======
         <state relative-caret-position="135">
+<<<<<<< HEAD
+          <caret line="9" column="0" lean-forward="false" selection-start-line="9" selection-start-column="0" selection-end-line="9" selection-end-column="0" />
+=======
           <caret line="9" column="0" lean-forward="true" selection-start-line="9" selection-start-column="0" selection-end-line="9" selection-end-column="0" />
 =======
         <state relative-caret-position="75">
@@ -787,6 +867,7 @@
         <state relative-caret-position="345">
           <caret line="23" column="44" lean-forward="false" selection-start-line="23" selection-start-column="44" selection-end-line="23" selection-end-column="44" />
 >>>>>>> headers
+>>>>>>> master
 >>>>>>> master
           <folding />
         </state>
