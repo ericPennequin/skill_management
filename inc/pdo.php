@@ -1,5 +1,5 @@
 <?php
-/* Connexion à la base de donnée */
+/* Connexion à la base de données */
 
 $host = '54.36.182.179';
 $dbname = 'groupe_leibniz';

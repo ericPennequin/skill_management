@@ -117,25 +117,42 @@ $tmp_projects = array($p1, $p2, $p3);
 ////////////////////////////////
 ////////////////////////////////
 ////////////////////////////////
-///
-if (isset($_GET['id']))
+// Vérification qu'un ID est bien passé en paramètre
+if (isset($_GET['id'])) {
     $profilID = $_GET['id'];
-else
-    $profilID = "ERROR";
 
+    // On appelle les requêtes nécessaires
+    $_REQUEST['command'] = "profilViewer";
+    $_REQUEST['id_person'] = $profilID;
+    require "../Model/Querys.php";
+    if (!isset($result) || empty($result)) {
+
+    } else {
+        echo "ERROR";
+        // REDIRECTION
+        exit;
+    }
+} else {
+    echo "ERROR";
+    // REDIRECTION
+    exit;
+}
+
+
+// Variables nécessaires
 $url = $_SERVER['REQUEST_URI'];
-if (substr($url,-1)=="/")
+if (substr($url, -1) == "/")
     $rootUrl = "../..";
 else
     $rootUrl = "..";
+
 $pageTitle = "Profil | ${tmp_name}";
 
 // Includes
 include "../inc/functions.php";
-
 ?>
-<?php include "../inc/header.php" ?>
-    <h1><?= $profilID ?></h1>
+<?php include "../inc/header.php"; ?>
+
     <script>
         FontAwesomeConfig = {searchPseudoElements: true};
     </script>
