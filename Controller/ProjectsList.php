@@ -37,4 +37,8 @@ class ProjectsList
 
         return $list;
     }
+
+    public function getProjectsList() {
+        return $this->projects;
+    }
 }

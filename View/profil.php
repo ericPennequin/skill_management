@@ -1,37 +1,5 @@
 <?php
 // Variables de test
-$profilePic = "http://www.gigtime.co/assets/fallback/default_user_avatar_huge.jpg";
-$profilePic = "http://jaimelafrance.tourisme.fr/wp-content/uploads/2015/09/La_Joconde-750x563.jpg";
-$tmp_name = "Jo' Conde";
-$tmp_phone = "0606060606";
-$tmp_mail = "tmp.mail@gmail.com";
-$tmp_etab = "CEFIM";
-$tmp_city = "Tours (37)";
-$tmp_skills = array(
-    0 => "HTML",
-    1 => "CSS",
-    2 => "PHP",
-    3 => "qsdf",
-    4 => "qsdf",
-    5 => "qsdf",
-    6 => "qsdf",
-    7 => "qsdf",
-    8 => "qsdf",
-    9 => "qsdf",
-    10 => "qsdf",
-    11 => "qsdf",
-    12 => "qsdf",
-    13 => "qsdf",
-    14 => "qsdf",
-    15 => "qsdf",
-    16 => "qsdf",
-    17 => "qsdf",
-    18 => "qsdf",
-    19 => "qsdf",
-    20 => "qsdf",
-    21 => "qsdf",
-    22 => "qsdf"
-);
 // PROJET 1
 $project1_skills = array(
     0 => "HTML",
@@ -124,23 +92,11 @@ include "../Controller/Person.php";
 // Vérification qu'un ID est bien passé en paramètre
 if (isset($_GET['id'])) {
     $profilID = $_GET['id'];
-
-    // On appelle les requêtes nécessaires
-
-
     $personne = new Person($profilID);
-    echo "<pre>";
     $personne->getPersonInfos();
+    echo "<pre>";
+    print_r($personne);
     echo "</pre>";
-    exit;
-
-//    if (isset($result) & !empty($result)) {
-//
-//    } else {
-//        echo "ERROR 2 : profil inconnu";
-//        // REDIRECTION
-//        exit;
-//    }
 } else {
     echo "ERROR 1";
     // REDIRECTION
@@ -155,7 +111,14 @@ if (substr($url, -1) == "/")
 else
     $rootUrl = "..";
 
-$pageTitle = "Profil | ${tmp_name}";
+$profilFullName = $personne->getFullName();
+$profilePic = $personne->getProfilPic();
+$profilePhoneNumber = $personne->getPhoneNumber();
+$profileEmail = $personne->getEmail();
+$profileEstablishmentName = $personne->getEstablishmentName();
+$profileEstablishmentCity = $personne->getEstablishmentCity();
+
+$pageTitle = "Profil | $profilFullName";
 ?>
 <?php include "../inc/header.php"; ?>
 
@@ -168,7 +131,7 @@ $pageTitle = "Profil | ${tmp_name}";
             <div id="profil-img"></div>
         </div>
         <div id="profil-name">
-            <?= $tmp_name ?>
+            <?= $profilFullName ?>
         </div>
     </div>
     <div id="profil-bottom">
@@ -186,34 +149,14 @@ $pageTitle = "Profil | ${tmp_name}";
                 <div class="section-content" id="sc-infos" data-ps-child="infos" style="display:block;">
                     <!-- content start -->
                     <div class="row">
-                        <?php displayProfileInfo("Téléphone", $tmp_phone, "fa-phone") ?>
-                        <?php displayProfileInfo("Établissement", $tmp_etab, "fa-building") ?>
-                        <?php displayProfileInfo("Mail", $tmp_mail, "fa-envelope") ?>
-                        <?php displayProfileInfo("Ville", $tmp_city, "fa-home") ?>
+                        <? $personne->displayProfileInfos() ?>
                     </div>
-                    <!-- content end -->
-                </div>
-            </section>
-            <!-- Compétences -->
-            <section class="ps ps-closed profil-section" id="ps-competences" data-ps-parent="competences"
-                     style="visibility:hidden;display:none;">
-                <h2 class="section-header">Compétences <span class="section-count"><?= count($tmp_skills) ?></span>
-                    <span class="section-toggle st-open">
-                        <i class="fas fa-chevron-down sh-icons"></i>
-                    </span>
-                    <span class="section-toggle st-close">
-                        <i class="fas fa-chevron-up sh-icons"></i>
-                    </span>
-                </h2>
-                <div class="section-content" id="sc-competences" data-ps-child="competences" style="display:none;">
-                    <!-- content start -->
-                    <?php displaySkills($tmp_skills) ?>
                     <!-- content end -->
                 </div>
             </section>
             <!-- Projets -->
             <section class="ps ps-open profil-section" id="ps-projets" data-ps-parent="projets">
-                <h2 class="section-header">Projets <span class="section-count"><?= count($tmp_projects) ?></span>
+                <h2 class="section-header">Projets <span class="section-count"><?= $personne->getProjectsCount() ?></span>
                     <span class="section-toggle st-open">
                         <i class="fas fa-chevron-down sh-icons"></i>
                     </span>
@@ -223,7 +166,8 @@ $pageTitle = "Profil | ${tmp_name}";
                 </h2>
                 <div class="section-content" id="sc-projets" data-ps-child="projets">
                     <!-- content start -->
-                    <?php displayProjects($tmp_projects) ?>
+                    <?php $personne->displayProfilProjects() ?>
+                    <?php //displayProjects($tmp_projects) ?>
                     <!-- content end -->
                 </div>
             </section>

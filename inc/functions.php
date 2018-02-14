@@ -8,7 +8,7 @@
  * @param string $label le libellé de l'information
  * @param string $value la valeur de l'information
  * @param string $icon l'icône FontAwesome correspondant à l'information
- */
+ *//*
 function displayProfileInfo($label, $value, $icon)
 {
     ?>
@@ -49,7 +49,7 @@ function displayProfileInfo($label, $value, $icon)
     </div>
     <?php
 }
-
+*/
 /**
  * Affiche un numéro de téléphone français selon un format donné
  * @param string $number le numéro de téléphone à 10 chiffres

@@ -48,4 +48,12 @@ class Establishment
         $this->city = $array['city'];
     }
 
+    public function getName() {
+        return $this->name;
+    }
+
+    public function getCity() {
+        return $this->city;
+    }
+
 }
