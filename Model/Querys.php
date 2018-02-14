@@ -65,7 +65,7 @@ if ($data['command']=='userConnection'){
  *      id_establishment
  *      name (establishment)
  *      city (establishment)
- *      project [ARRAY, id = id_project]
+ *      projects [ARRAY, id = id_project]
  *          id_project
  *          name
  *          description
