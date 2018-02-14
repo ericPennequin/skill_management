@@ -117,23 +117,32 @@ $tmp_projects = array($p1, $p2, $p3);
 ////////////////////////////////
 ////////////////////////////////
 ////////////////////////////////
+
+// Includes
+include "../inc/functions.php";
+include "../Controller/Person.php";
 // Vérification qu'un ID est bien passé en paramètre
 if (isset($_GET['id'])) {
     $profilID = $_GET['id'];
 
     // On appelle les requêtes nécessaires
-    $_REQUEST['command'] = "profilViewer";
-    $_REQUEST['id_person'] = $profilID;
-    require "../Model/Querys.php";
-    if (!isset($result) || empty($result)) {
 
-    } else {
-        echo "ERROR";
-        // REDIRECTION
-        exit;
-    }
+
+    $personne = new Person($profilID);
+    echo "<pre>";
+    $personne->getPersonInfos();
+    echo "</pre>";
+    exit;
+
+//    if (isset($result) & !empty($result)) {
+//
+//    } else {
+//        echo "ERROR 2 : profil inconnu";
+//        // REDIRECTION
+//        exit;
+//    }
 } else {
-    echo "ERROR";
+    echo "ERROR 1";
     // REDIRECTION
     exit;
 }
@@ -147,9 +156,6 @@ else
     $rootUrl = "..";
 
 $pageTitle = "Profil | ${tmp_name}";
-
-// Includes
-include "../inc/functions.php";
 ?>
 <?php include "../inc/header.php"; ?>
 
