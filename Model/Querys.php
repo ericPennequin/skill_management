@@ -16,6 +16,7 @@ $data['command']=$_REQUEST['command'];
 
 
 
+/** Affichage page admin
  *
  * Return void
  * TEST OK
