@@ -9,8 +9,7 @@
 class Attachment
 {
     public $id;
-    public $projectID;
-    //public $name;
+    public $name;
     public $data;
 
     /**
@@ -30,17 +29,38 @@ class Attachment
 
     protected function loadByID()
     {
-        $_REQUEST['command'] = "getAttachment";
-        $_REQUEST['id_attachment'] = $this->id;
-        $result = array();
-        include "../Model/Querys.php";
+        $result = getQuery("getAttachment", array("id_attachment", $this->id));
         $this->fill($result);
     }
 
     protected function fill(array $array)
     {
-        $this->projectID = $array['id_project'];
-        //$this->name = $array['name'];
         $this->data = $array['data'];
     }
+
+    /**
+     * @return int
+     */
+    public function getId()
+    {
+        return $this->id;
+    }
+
+    /**
+         * @return string
+     */
+    public function getName()
+    {
+        return $this->name;
+    }
+
+    /**
+         * @return mixed
+     */
+    public function getData()
+    {
+        return $this->data;
+    }
+
+
 }

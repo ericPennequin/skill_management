@@ -6,8 +6,9 @@
  * Time: 12:20
  */
 
-require "Establishment.php";
-require "ProjectsList.php";
+include "Establishment.php";
+include "Project.php";
+include_once "../Model/Querys.php";
 
 class Person
 {
@@ -38,10 +39,7 @@ class Person
 
     public function getPersonInfos()
     {
-        $_REQUEST['command'] = "profilViewer";
-        $_REQUEST['id_person'] = $this->id;
-        $result = array();
-        include "../Model/Querys.php";
+        $result = getQuery("getProfil", array("id_person", $this->id));
 
         $this->fillAttributs($result["userData"]);
     }
@@ -54,10 +52,18 @@ class Person
         $this->cellNumber = $array["cell_number"];
         $this->profilPic = $array["picture"];
         $this->status = $array["status"];
-
         $this->establishment = Establishment::withID($array["id_establishment"]);
+        $this->loadProjectsList();
+    }
 
-        $this->projects = new ProjectsList($array["id_establishment"]);
+    protected function loadProjectsList()
+    {
+        $this->projects = [];
+        $result = getQuery("getProjectsList", array("id_establishment", $this->establishment->id));
+        foreach ($result as $projectID) {
+            $this->projects[$projectID] = Project::withID($projectID);
+        }
+        unset($result);
     }
 
 
@@ -98,7 +104,7 @@ class Person
 
     public function getProjectsList()
     {
-        return $this->projects->getProjectsList();
+        return $this->projects;
     }
 
     public function getProjectsCount()
@@ -169,27 +175,22 @@ class Person
     public function displayProfilProjects()
     {
         if ($this->getProjectsCount() > 0) {
-            foreach ($this->getProjectsList() as $p) { ?>
+            /* @var $p Project.php */
+            foreach ($this->projects as $p) { ?>
                 <div class="profil-projet"
-                     data-projet-title="<?= $p->name ?>"
-                     id="pp-<?= $p->id ?>">
-                    <h3 class="projet-header"><?= $p->name ?></h3>
-                    <div class="projet-location">{{ETABLISSEMENT <?= $p->dEtablishment ?>}}</div>
+                     data-projet-title="<?= $p->getName() ?>"
+                     id="pp-<?= $p->getID() ?>">
+                    <h3 class="projet-header"><?= $p->getName() ?></h3>
+                    <!--div class="projet-location">{{ETABLISSEMENT}}</div-->
                     <p class="projet-description">
-                        <? displayDescription($p->description, $p->id) ?>
+                        <? displayDescription($p->getDescription(), $p->getID()) ?>
                     </p>
                     <div class="projet-competences">
-                        <?php //displaySkills($project["skills"]) ?>
+                        <?php $p->displaySkillsList() ?>
                     </div>
                     <div class="projet-files">
-                        <a class="pf pf-word" href="" download="download">test_file.docx</a>
-                        <a class="pf pf-pdf" href="" download="download">test_file.pdf</a>
-                        <a class="pf pf-img" href="" download="download">test_file.png</a>
-                        <a class="pf pf-default" href="" download="download">test_file.bin</a>
+                        <?php $p->displayAttachmentsList() ?>
                     </div>
-                    <?php //if (count($project["attachments"]) > 0) {
-                        //displayAttachments($project["attachments"]);
-                    //} ?>
                 </div>
                 <?php
             }

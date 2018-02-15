@@ -9,8 +9,7 @@
 class Skill
 {
     public $id;
-    public $projectID;
-    public $name;
+    protected $name;
 
     /**
      * Skill constructor.
@@ -29,16 +28,31 @@ class Skill
 
     protected function loadByID()
     {
-        $_REQUEST['command'] = "getSkill";
-        $_REQUEST['id_skill'] = $this->id;
-        $result = array();
-        include "../Model/Querys.php";
+        $result = getQuery("getSkill", array("id_skill", $this->id));
         $this->fill($result);
     }
 
     protected function fill(array $array)
     {
-        $this->projectID = $array['id_skill'];
         $this->name = $array['name'];
     }
+
+    /**
+     * @return int
+     */
+    public function getId()
+    {
+        return $this->id;
+    }
+
+    /**
+     * @return string
+     */
+    public function getName()
+    {
+        return $this->name;
+    }
+
+
+
 }

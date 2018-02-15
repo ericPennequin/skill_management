@@ -36,10 +36,7 @@ class Establishment
     }
 
     protected function loadByID() {
-        $_REQUEST['command'] = "getEstablishment";
-        $_REQUEST['id_establishment'] = $this->id;
-        $result = array();
-        include "../Model/Querys.php";
+        $result = getQuery("getEstablishment", array("id_establishment", $this->id));
         $this->fill($result);
     }
 
