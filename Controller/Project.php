@@ -148,8 +148,8 @@ class Project
             /* @var $data Attachment.php */
             foreach ($this->data as $data) {
                 ?>
-                <a class="pf pf-default" id="pf-<?= $data->getID() ?>" href=""
-                   download="irhkegnrilgo"><?= $data->getData() ?></a>
+                <!--a class="pf pf-<?= $data->getDocType() ?>" id="pf-<?= $data->getID() ?>" href=""
+                   download="<?= $data->getName() ?>"><?= $data->getName() ?></a-->
                 <?php
             }
         } else {

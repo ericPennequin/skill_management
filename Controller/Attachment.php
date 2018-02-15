@@ -47,7 +47,7 @@ class Attachment
     }
 
     /**
-         * @return string
+     * @return string
      */
     public function getName()
     {
@@ -55,11 +55,43 @@ class Attachment
     }
 
     /**
-         * @return mixed
+     * @return mixed
      */
     public function getData()
     {
         return $this->data;
+    }
+
+    /**
+     * @return string
+     */
+    public function getExtension()
+    {
+        $file = explode(".", $this->name);
+        return end($file);
+    }
+
+    public function getDocType()
+    {
+        switch ($this->getExtension()) {
+            case "docx":
+            case "doc":
+                return "word";
+                break;
+            case "pdf":
+                return "pdf";
+                break;
+            case "bmp":
+            case "gif":
+            case "jpg":
+            case "jpeg":
+            case "png":
+                return "img";
+                break;
+            default:
+                return "default";
+                break;
+        }
     }
 
 

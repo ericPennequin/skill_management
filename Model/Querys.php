@@ -13,6 +13,60 @@ $data = $_REQUEST;
 
 $data['command'] = $_REQUEST['command'];
 
+/**
+ *
+ * Return json
+ * TEST OK
+ *
+ */
+if ($data['command']=='adminView'){
+    try {
+        $request=$dbh->query("SELECT picture,status,id_person,firstname,lastname,email,cell_number, establishment.id_establishment, establishment.name, establishment.city 
+            FROM person
+            JOIN establishment ON person.id_establishment=establishment.id_establishment 
+            WHERE person.status=1");
+        $return=$request->fetchAll();
+        for ($idx=0;$idx<count($return);$idx++){
+            $subResult['id_person']=$return[$idx]['id_person'];
+            $subResult['firstname']=$return[$idx]['firstname'];
+            $subResult['lastname']=$return[$idx]['lastname'];
+            $subResult['cell_number']=$return[$idx]['cell_number'];
+            $subResult['email']=$return[$idx]['email'];
+            $subResult['picture']=$return[$idx]['picture'];
+            $subResult['establishment_name']=$return[$idx]['name'];
+            $subResult['city']=$return[$idx]['city'];
+            //$subResult['status']=$return[$idx]['status'];
+            $result[]=$subResult;
+        }
+        //$subResult['']=$return[$idx][''];
+        $resultJson=json_encode($result);
+        echo $resultJson;
+        /*V pour test
+        $userProfilUpdate=$dbh->exec("UPDATE person
+        set
+        firstname='Charles',
+        lastname='DeMogenc',
+        email='charlesedemogency@demogency.com',
+        cell_number='0698754322',
+        person.id_establishment=2
+         WHERE id_person = 3 ");
+        UPDATE person
+        set
+        firstname='Charles',
+        lastname='DeMogenc',
+        email='charlesedemogency@demogency.com',
+        cell_number='0698754322',
+        person.id_establishment=(SELECT id_establishment
+            FROM establishment
+            WHERE name = 'AFPA'
+            AND city='Tours')
+         WHERE id_person = 3
+         * */
+    }catch(Exception $e){
+        die('Erreur: '.$e->getMessage());
+    }
+}
+
 
 /**Connexion user
  * Return table of 2 objects
