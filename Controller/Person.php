@@ -39,9 +39,15 @@ class Person
 
     public function getPersonInfos()
     {
+        $result = [];
         $result = getQuery("getProfil", array("id_person", $this->id));
 
-        $this->fillAttributs($result["userData"]);
+        if (!empty($result['userData'])) {
+            $this->fillAttributs($result["userData"]);
+            return true;
+        } else {
+            return false;
+        }
     }
 
     protected function fillAttributs(array $array)
@@ -183,7 +189,7 @@ class Person
                     <h3 class="projet-header"><?= $p->getName() ?></h3>
                     <!--div class="projet-location">{{ETABLISSEMENT}}</div-->
                     <p class="projet-description">
-                        <? displayDescription($p->getDescription(), $p->getID()) ?>
+                        <?php displayDescription($p->getDescription(), $p->getID()) ?>
                     </p>
                     <div class="projet-competences">
                         <?php $p->displaySkillsList() ?>

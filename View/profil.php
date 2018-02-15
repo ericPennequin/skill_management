@@ -3,23 +3,29 @@
 include "../inc/functions.php";
 include "../Controller/Person.php";
 
-// Vérification qu'un ID est bien passé en paramètre
-if (isset($_GET['id'])) {
-    $profilID = $_GET['id'];
-    $personne = new Person($profilID);
-    $personne->getPersonInfos();
-} else {
-    echo "ERROR 1 : ID non reconnu.";
-    // REDIRECTION
-    exit;
-}
-
 // Variables nécessaires
 $url = $_SERVER['REQUEST_URI'];
 if (substr($url, -1) == "/")
     $rootUrl = "../..";
 else
     $rootUrl = "..";
+
+// Vérification qu'un ID est bien passé en paramètre
+if (isset($_GET['id'])) {
+    $profilID = $_GET['id'];
+    $personne = new Person($profilID);
+
+    // Vérification que l'ID est bien attribué, sinon retour à la page d'accueil avec une erreur
+    if (!$personne->getPersonInfos()) {
+        echo "ERROR 2 : ID non valide.";
+        header("location: ${rootUrl}/index.php?error=2");
+        exit;
+    }
+} else {
+    echo "ERROR 1 : ID non présent.";
+    header("location: index.php?error=1");
+    exit;
+}
 
 
 $profilFullName = $personne->getFullName();
@@ -60,14 +66,15 @@ $pageTitle = "Profil | $profilFullName";
                 <div class="section-content" id="sc-infos" data-ps-child="infos" style="display:block;">
                     <!-- content start -->
                     <div class="row">
-                        <? $personne->displayProfileInfos() ?>
+                        <?php $personne->displayProfileInfos() ?>
                     </div>
                     <!-- content end -->
                 </div>
             </section>
             <!-- Projets -->
             <section class="ps ps-open profil-section" id="ps-projets" data-ps-parent="projets">
-                <h2 class="section-header">Projets <span class="section-count"><?= $personne->getProjectsCount() ?></span>
+                <h2 class="section-header">Projets <span
+                            class="section-count"><?= $personne->getProjectsCount() ?></span>
                     <span class="section-toggle st-open">
                         <i class="fas fa-chevron-down sh-icons"></i>
                     </span>
