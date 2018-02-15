@@ -20,6 +20,8 @@ if (!isset($rootUrl))
     <link rel="stylesheet" href="<?=$rootUrl?>/lib/bootstrap-4.0.0-dist/css/bootstrap.css">
     <link rel="stylesheet" href="<?=$rootUrl?>/css/main.css">
     <script src="<?=$rootUrl?>/js/profil.js"></script>
+    <link rel="stylesheet" href="<?=$rootUrl?>/css/jquery.dataTables.min.css">
+    <script src="<?=$rootUrl?>/js/jquery.dataTables.min.js"></script>
 
     <?php // PAGE PROFIL
     if ($currentPageName === "profil.php") {
