@@ -10,6 +10,7 @@ $rootUrl = "../";
 
 ?>
 <?php require '../inc/header.php'?>
+<?php require require "Controler/Person.php"?>
 <!--
 
 -->
@@ -22,11 +23,20 @@ $rootUrl = "../";
 	$(document).ready(function() {
 
 
+
+		<?php
+		//$dayToConvert= new Convert();
+		//$today=$dayToConvert->dateToTimestamp(date('Y-m-d'));
+		$personToDisplay=new Person();
+
+
+		?>
+
 		$('#defaultTable').append(
-			'<thead> <th>nom</th><th>prenom</th></thead>'
+			''
 		)//Ici on entre le header
 		// ici on fait une requête ajax
-		var table={command:'userConnection'};
+		var table={command:'adminView'};
 
 		$.ajax({
 			url: '../Model/Querys.php',
@@ -36,31 +46,30 @@ $rootUrl = "../";
 				var jsonResult = JSON.parse(result);
 
 			}
+			dataTableInit();
 
-			})
+			});
 
-			;
-
-		$('#defaultTable').DataTable();
 
 //div du input--> children du div : id="editing-view-port"
-		$('#toto').click(function(){
-			//action de la fonction
-			appelmafonction()
-		})
+
 
 
 	} );
 
+function dataTableInit() {
+	$('#defaultTable').DataTable();
 
+}
 
 
 </script>
 
-<input type="button" id="toto">
+
 <table id="defaultTable">
+	<tbody id="body">
 
-
+	</tbody>
 </table>
 
 

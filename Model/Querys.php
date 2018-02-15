@@ -16,6 +16,105 @@ $data['command']=$_REQUEST['command'];
 
 
 
+ *
+ * Return void
+ * TEST OK
+ * TODO : etablissement, projets, competences à requeter
+ */
+
+if ($data['command']=='adminView'){
+
+
+	try {
+/*
+		$request=$dbh->query("SELECT * FROM person WHERE status=1 ORDER BY id_person DESC ");
+
+			$return=$request->fetchAll();
+		for ($idx=0;$idx<count($return);$idx++){
+
+			$subResult['id_person']=$return[$idx]['id_person'];
+			$subResult['id_establishment']=$return[$idx]['id_establishment'];
+			$subResult['firstname']=$return[$idx]['firstname'];
+			$subResult['lastname']=$return[$idx]['lastname'];
+			$subResult['cell_number']=$return[$idx]['cell_number'];
+			$subResult['email']=$return[$idx]['email'];
+			$subResult['picture']=$return[$idx]['picture'];
+			$subResult['status']=$return[$idx]['status'];
+			$result[]=$subResult;
+
+		}*/
+
+		$request=$dbh->query("SELECT picture,status,id_person,firstname,lastname,email,cell_number, establishment.id_establishment, establishment.name, establishment.city 
+			FROM person
+			JOIN establishment ON person.id_establishment=establishment.id_establishment 
+			WHERE person.status=1");
+
+		$return=$request->fetchAll();
+
+		for ($idx=0;$idx<count($return);$idx++){
+
+			$subResult['id_person']=$return[$idx]['id_person'];
+			$subResult['firstname']=$return[$idx]['firstname'];
+			$subResult['lastname']=$return[$idx]['lastname'];
+			$subResult['cell_number']=$return[$idx]['cell_number'];
+			$subResult['email']=$return[$idx]['email'];
+			$subResult['picture']=$return[$idx]['picture'];
+			$subResult['establishment_name']=$return[$idx]['name'];
+			$subResult['city']=$return[$idx]['city'];
+			//$subResult['status']=$return[$idx]['status'];
+			$result[]=$subResult;
+
+		}
+		//$subResult['']=$return[$idx][''];
+
+
+
+
+		$resultJson=json_encode($result);
+
+		echo $resultJson;
+
+
+		/*V pour test
+		$userProfilUpdate=$dbh->exec("UPDATE person
+		set
+		firstname='Charles',
+		lastname='DeMogenc',
+		email='charlesedemogency@demogency.com',
+		cell_number='0698754322',
+		person.id_establishment=2
+		 WHERE id_person = 3 ");
+
+
+		UPDATE person
+		set
+		firstname='Charles',
+		lastname='DeMogenc',
+		email='charlesedemogency@demogency.com',
+		cell_number='0698754322',
+		person.id_establishment=(SELECT id_establishment
+			FROM establishment
+			WHERE name = 'AFPA'
+			AND city='Tours')
+		 WHERE id_person = 3
+
+
+
+		 * */
+
+
+
+	}catch(Exception $e){
+		die('Erreur: '.$e->getMessage());
+	}
+
+}
+
+
+
+
+
+
 /**Connexion user
  * Return table of 2 objects
  * TESTE OK
@@ -143,7 +242,14 @@ if ($data['command'] == 'profilViewer') {
 			unset($project);
 		}
 
-		return $result;
+		/**Rajouté jsonencode (et echo)
+		 *
+		*/
+
+		echo $resultJson=json_encode($result);
+
+
+		//return $result;
 	} catch (Exception $e) {
 		die('Erreur: ' . $e->getMessage());
 	}
@@ -187,9 +293,6 @@ if ($data['command']=='profilModif'){
 			$request=$dbh->query("INSERT INTO establishment(name,city)VALUES('$establishmentName','$city') ");
 		}
 		$establishmentUpdate=$request->fetchAll();
-
-		//TODO Voir si c'est nécessaire (en cas de 2 requêtes pour récupérer l'id etablissement)
-		//$id_Establishment=$dbh->exec("SELECT establishment.id_establishment FROM establishment WHERE establishment.name = 'CEFIM' AND establishment.city='Tours' ");
 
 
 		/*V pour test
@@ -334,7 +437,9 @@ if ($data['command']=='projectModif'){
 		*/
 
 	}catch(Exception $e){
+
 		die('Erreur: '.$e->getMessage());
+
 	}
 
 
@@ -345,7 +450,7 @@ if ($data['command']=='projectModif'){
 
 /**Ajout d'un USER
  * 0 = user, 1 = admin. Id etablissement 1 = rien. Status : 0 : inactif, 1 = actif
- * Return void
+ * Return $message
  * TEST OK
  */
 if ($data['command']=='addUser'){
@@ -353,11 +458,18 @@ if ($data['command']=='addUser'){
 	$pwd=$data['pwd'];
 
 	try {
+
 		$addUser= $dbh->query("INSERT INTO person (email,pwd,id_establishment,admin,status)
 			VALUES ($email,$pwd,1,0,1)");
 
+		$message='User Ajouté';
+
+		echo $message;
+
 	}catch(Exception $e){
+
 		die('Erreur: '.$e->getMessage());
+
 	}
 /*Pour tests SQL
  * INSERT INTO person (email,pwd,id_establishment,admin,status)
@@ -372,16 +484,25 @@ if ($data['command']=='addUser'){
 
 
 /** Suppression d'un USER
- * Return void
+ * Return $message
  * TEST OK
  */
 if ($data['command']=='deleteUser'){
+
 	$id=$data['id'];
+
 	try {
+
 		$deleteUser= $dbh->query("UPDATE person set status=0 WHERE id_person = '$id'");
 
+		$message='User supprimé';
+
+		echo $message;
+
 	}catch(Exception $e){
+
 		die('Erreur: '.$e->getMessage());
+
 	}
 /*Pour test SQL
 UPDATE person set status=0 WHERE id_person = 4
