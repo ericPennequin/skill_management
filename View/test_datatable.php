@@ -1,6 +1,7 @@
 <?php
 // Includes
 include "../inc/functions.php";
+include "../Controller/Person.php";
 
 $pageTitle = "test datatable";
 
@@ -11,23 +12,44 @@ if (substr($url, -1) == "/")
 else
     $rootUrl = "..";
 
-include "../inc/header.php"; ?>
+include "../inc/header.php";
 
-<script>
-    $(document).ready(function(){
-        $('#myTable').DataTable();
-    });
-</script>
+$list = array(1, 2, 3);
+?>
 
-<table id="myTable">
-    <tr>
-        <th>id</th>
-        <th>nom</th>
-    </tr>
-    <tr>
-        <td>1</td>
-        <td>2</td>
-        <td>3</td>
-    </tr>
+    <script>
+        $(document).ready(function () {
+            $('#myTable').DataTable();
+        });
+    </script>
 
-</table>
+    <table id="myTable">
+        <tr>
+            <th>ID</th>
+            <th>NOM</th>
+            <th>NOM</th>
+        </tr>
+        <?php
+        foreach ($list as $id) {
+            // init
+            $personne = new Person($id);
+            $personne->getPersonInfos();
+            ?>
+            <tr>
+                <td><?= $id; ?></td>
+                <td>
+                    <a href="profil.php?id=<?= $id; ?>">
+                        <?= $personne->getFullName(); ?>
+                    </a>
+                </td>
+            </tr>
+            <?php
+        }
+        ?>
+    </table>
+
+<?php
+function displayTestDT($personne)
+{
+
+}
