@@ -36,6 +36,7 @@ class Attachment
     protected function fill(array $array)
     {
         $this->data = $array['data'];
+        $this->name = $array['name'];
     }
 
     /**
