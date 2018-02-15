@@ -6,24 +6,24 @@
  * Time: 14:16
  */
 
-require "SkillsList.php";
-require "AttachmentsList.php";
+require "Skill.php";
+require "Attachment.php";
 
 class Project
 {
     public $id;
     public $idEtablishment;
 
-    public $name;
-    public $description;
-    public $status;
+    protected $name;
+    protected $description;
+    protected $status;
 
-    public $skills;
+    protected $skills;
 
-    public $data;
+    protected $data;
 
     /**
-     * Establishment constructor.
+     * Project constructor.
      */
     public function __construct()
     {
@@ -39,10 +39,7 @@ class Project
 
     protected function loadByID()
     {
-        $_REQUEST['command'] = "getProject";
-        $_REQUEST['id_project'] = $this->id;
-        $result = array();
-        include "../Model/Querys.php";
+        $result = getQuery("getProject", array("id_project", $this->id));
         $this->fill($result);
     }
 
@@ -52,9 +49,111 @@ class Project
         $this->name = $array['name'];
         $this->description = $array['description'];
         $this->status = $array['status'];
+        $this->loadSkillsList();
+        $this->loadAttachmentsList();
+    }
 
-        $this->skills = new SkillsList($array["id_establishment"]);
+    protected function loadSkillsList()
+    {
+        $this->skills = [];
+        $result = getQuery("getSkillsList", array("id_project", $this->id));
+        foreach ($result as $skillID) {
+            $this->skills[$skillID] = Skill::withID($skillID);
+        }
+        unset($result);
+    }
 
-        $this->data = new AttachmentsList($this->id);
+    protected function loadAttachmentsList()
+    {
+        $this->data = [];
+        $result = getQuery("getAttachmentsList", array("id_project", $this->id));
+        foreach ($result as $attachmentID) {
+            $this->data[$attachmentID] = Attachment::withID($attachmentID);
+        }
+        unset($result);
+    }
+
+    //
+
+    public function getID()
+    {
+        return $this->id;
+    }
+
+    public function getName()
+    {
+        return $this->name;
+    }
+
+    public function getDescription()
+    {
+        return $this->description;
+    }
+
+    public function getStatus()
+    {
+        return $this->status;
+    }
+
+    public function getSkillsList()
+    {
+        return $this->skills;
+    }
+
+    public function getAttachmentsList()
+    {
+        return $this->data;
+    }
+
+    // Display
+
+
+    /**
+     * Affiche la liste des compétences passées dans un tableau
+     * @param array $skills la liste des compétences
+     */
+    public function displaySkillsList()
+    {
+        if (count($this->skills) > 0) {
+            /* @var $skill Skill.php */
+            foreach ($this->skills as $skill) {
+                ?>
+                <a class="ct competence-tag" data-competence-title="<?= $skill->getName() ?>"
+                   id="ct-<?= $skill->getID() ?>"
+                   href="#<?= $skill->getName() . "-" . $skill->getID() ?>">
+                    <?= $skill->getName() ?>
+                </a>
+                <?php
+                //echo "<a class=\"ct competence-tag\" data-competence-title=\"${skill}\" id=\"ct-${id}\" href=\"#${skill}-${id}\">${skill}</a>";
+            }
+        } else {
+            echo "Il n'y a aucune compétence à afficher.";
+        }
+    }
+
+    /**
+     * Affiche la liste des compétences passées dans un tableau
+     * @param array $skills la liste des compétences
+     */
+    public function displayAttachmentsList()
+    {
+        /** List of different files
+         *
+         * <a class="pf pf-word" href="" download="download">test_file.docx</a>
+         * <a class="pf pf-pdf" href="" download="download">test_file.pdf</a>
+         * <a class="pf pf-img" href="" download="download">test_file.png</a>
+         * <a class="pf pf-default" href="" download="download">test_file.bin</a>
+         */
+        if (count($this->data) > 0) {
+            /* @var $data Attachment.php */
+            foreach ($this->data as $data) {
+                ?>
+                <!--a class="pf pf-<?= $data->getDocType() ?>" id="pf-<?= $data->getID() ?>" href=""
+                   download="<?= $data->getName() ?>"><?= $data->getName() ?></a-->
+                <?php
+            }
+        } else {
+            echo "Il n'y a aucune compétence à afficher.";
+        }
     }
 }

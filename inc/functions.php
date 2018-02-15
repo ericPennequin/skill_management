@@ -153,3 +153,13 @@ function displayProjects(array $projects)
         echo "Il n'y a aucun projet à afficher.";
     }
 }
+
+//function getQuery($command, $params)
+//{
+//    $_REQUEST['command'] = $command;
+////    $_REQUEST['id_person'] = $this->id;
+//    $_REQUEST[$params[0]] = $params[1];
+//    $result = array();
+//    include_once "../Model/Querys.php";
+//    return $result;
+//}
