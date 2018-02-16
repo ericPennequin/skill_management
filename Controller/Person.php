@@ -69,10 +69,31 @@ class Person
 
     // Fonctions
 
+	public function getCountPerson(){
+    	$result=getQuery("getCountPerson",[]);
+    	echo $result;
+
+	}
+
+	public function getAllIdPerson(){
+		$result=getQuery("getAllIdPerson",[]);
+		echo $result;
+
+	}
+
+
     public function getFullName()
     {
         return $this->firstName . " " . $this->lastName;
     }
+	public function getUserFirstname()
+	{
+		return $this->firstName;
+	}
+	public function getUserLastname()
+	{
+		return $this->lastName;
+	}
 
     public function getProfilPic()
     {

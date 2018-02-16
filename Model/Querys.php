@@ -448,7 +448,7 @@ if ($data['command'] == 'addUser') {
  * TEST OK
  */
 if ($data['command'] == 'deleteUser') {
-    $id = $data['id'];
+    $id = $data['id_person'];
     try {
         $deleteUser = $dbh->query("UPDATE person set status=0 WHERE id_person = '$id'");
 

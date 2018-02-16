@@ -15,13 +15,10 @@ $rootUrl = "../";
 -->
 
 <script src="<?= $rootUrl ?>lib/DataTables/datatables.js"></script>
-<!--<script src="<?/*= $rootUrl */?>Controler/LoadView.js"></script>-->
 <link rel="stylesheet" href="<?= $rootUrl ?>lib/DataTables/datatables.css">
-
 
 <script>
 	$(document).ready(function () {
-
 
 		/**TODO :
 		 *  Injecter les th via Jquery
@@ -30,7 +27,6 @@ $rootUrl = "../";
 		 *  Faire plus beau
 		 *  Faire une classe pour le JS ?
 		 * */
-
 
 
 		let table = {command: 'adminView'};
@@ -103,26 +99,7 @@ $rootUrl = "../";
 
 						}
 
-						$('#' + idtd).append("<td id='' ><input type='button' value='Supprimer " + jsonResult[idx].firstname + "' id=" + jsonResult[idx].id_person + "></td>");
-
-							//implémentation de la suppression du profil
-							let table={command:'deleteUser', id_person:jsonResult[idx]['id_person']};
-
-						/*
-						$('#'+ jsonResult[idx].id_person).click(
-
-								$.ajax({
-									url:'../Model/Querys.php',
-									type:'POST',
-									data:table,
-									success:function(result){
-										let jsonResult = JSON.parse(result);
-										console.log(jsonResult)
-									}
-								})
-						)
-						*/
-
+						$('#' + idtd).append("<td id='' ><input type='button' onclick='deleteUser(this.id)'  value='Supprimer " + jsonResult[idx].firstname + "' id=" + jsonResult[idx].id_person + " ></td>");
 
 					}
 
@@ -142,6 +119,19 @@ $rootUrl = "../";
 		 * */
 
 	});
+
+	function deleteUser(id) {
+		let table={command:'deleteUser', id_person:id};
+		$.ajax({
+			url:'../Model/Querys.php',
+			type:'POST',
+			data:table,
+			success:function(result){
+				window.reload();
+			}
+		})
+	}
+
 
 
 
@@ -192,6 +182,9 @@ $rootUrl = "../";
 	<tbody id="body">
 
 	</tbody>
+		<tfoot>
+
+		</tfoot>
 </table>
 
 
