@@ -5,6 +5,7 @@
  * Date: 12/02/2018
  * Time: 10:40
  */
+<<<<<<< HEAD
 if (basename($_SERVER['PHP_SELF']) == "index.php")
     require_once("inc/pdo.php");
 else
@@ -16,6 +17,51 @@ if (isset($_REQUEST['command']))
     $data['command'] = $_REQUEST['command'];
 else
     $data['command'] = "";
+=======
+
+require "../inc/pdo.php";
+
+$data = $_REQUEST;
+
+if (isset($_REQUEST['command'])){
+
+	$data['command'] = $_REQUEST['command'];
+
+}else{
+	$data['command'] ="";
+}
+
+
+function getAllFromPerson($command){
+
+	global $dbh;
+	/**Pour récupérer les id de la table person
+
+	 */
+
+	if ($command == 'getAllIdPerson') {
+
+		try {
+			$stmt = $dbh->query("SELECT id_person
+            FROM person");
+
+			$subResult = $stmt->fetchAll();
+			for ($idx=0;$idx<count($subResult);$idx++){
+				$result[]=$subResult[$idx]['id_person'];
+
+			}
+
+			return $result;
+
+		} catch (Exception $e) {
+
+			die('Erreur: ' . $e->getMessage());
+		}
+	}
+
+};
+
+>>>>>>> master
 
 /**
  *
@@ -416,7 +462,7 @@ if ($data['command'] == 'addUser') {
  * TEST OK
  */
 if ($data['command'] == 'deleteUser') {
-    $id = $data['id'];
+    $id = $data['id_person'];
     try {
         $deleteUser = $dbh->query("UPDATE person set status=0 WHERE id_person = '$id'");
 
@@ -433,6 +479,7 @@ if ($data['command'] == 'deleteUser') {
 ////////////////////////////////////////////////
 /// Fonctions pour les classes
 ///
+
 
 function getQuery($command, $params)
 {
@@ -573,4 +620,10 @@ function getQuery($command, $params)
             die('Erreur: ' . $e->getMessage());
         }
     }
+
+
+
+
+
+
 }
