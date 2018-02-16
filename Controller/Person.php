@@ -8,7 +8,11 @@
 
 include "Establishment.php";
 include "Project.php";
-include_once "../Model/Querys.php";
+
+if (basename($_SERVER['PHP_SELF']) == "index.php")
+    include "Model/Querys.php";
+else
+    include "../Model/Querys.php";
 
 class Person
 {
@@ -35,6 +39,7 @@ class Person
     public function __construct($id)
     {
         $this->id = $id;
+        echo exec("pwd");
     }
 
     public function getPersonInfos()
@@ -85,7 +90,15 @@ class Person
         if (isset($this->profilPic) && !empty($this->profilPic))
             return $this->profilPic;
         else
-            return "http://jaimelafrance.tourisme.fr/wp-content/uploads/2015/09/La_Joconde-750x563.jpg";
+            return "../img/avatar_default.jpg";
+    }
+
+    public function getSearchProfilPic()
+    {
+        if (isset($this->profilPic) && !empty($this->profilPic))
+            return $this->profilPic;
+        else
+            return "./img/user_icon.png";
     }
 
     public function getPhoneNumber()
@@ -118,7 +131,26 @@ class Person
         return count($this->getProjectsList());
     }
 
-    // Fonctions d'affichage
+    // Fonctions d'affichage ACCUEIL/RECHERCHE
+
+    public function displaySearchTablePerson()
+    {
+        ?>
+        <tr>
+            <th><img src="<?= $this->getSearchProfilPic() ?>" style="max-height: 100px;" alt="user_picture"></th>
+            <td>
+                <a href="./profil/<?= $this->id ?>">
+                    <?= $this->getFullName() ?>
+                </a>
+            </td>
+            <td><?= $this->getEstablishmentName() ?></td>
+            <td><?= $this->getEmail() ?></td>
+            <td><?= $this->getPhoneNumber() ?></td>
+        </tr>
+        <?php
+    }
+
+    // Fonctions d'affichage PROFIL
 
     /**
      * Fonction permettant d'afficher un bloc contenant une information sur le profil.
@@ -189,7 +221,7 @@ class Person
                     <h3 class="projet-header"><?= $p->getName() ?></h3>
                     <!--div class="projet-location">{{ETABLISSEMENT}}</div-->
                     <p class="projet-description">
-                        <?php displayDescription($p->getDescription(), $p->getID()) ?>
+                        <?php $p->displayDescription() ?>
                     </p>
                     <div class="projet-competences">
                         <?php $p->displaySkillsList() ?>
@@ -204,42 +236,5 @@ class Person
             echo "Il n'y a aucun projet à afficher.";
         }
     }
-
-
-    /**
-     * Affiche la liste des projets passées dans un tableau
-     * @param array $projects la liste des projets
-     *//*
-    function displayProjects(array $projects)
-    {
-        if (count($this->getProjectsCount()) > 0) {
-            foreach ($projects as $id => $project) { ?>
-                <div class="profil-projet"
-                     data-projet-title="<?= $project["name"] ?>"
-                     id="pp-<?= $project["id_project"] ?>">
-                    <h3 class="projet-header"><?= $project["name"] ?></h3>
-                    <div class="projet-location">{{ETABLISSEMENT <?= $project["id_establishment"] ?>}}</div>
-                    <p class="projet-description">
-                        <? displayDescription($project["description"], $project["id_project"]) ?>
-                    </p>
-                    <div class="projet-competences">
-                        <?php displaySkills($project["skills"]) ?>
-                    </div>
-                    <div class="projet-files">
-                        <a class="pf pf-word" href="" download="download">test_file.docx</a>
-                        <a class="pf pf-pdf" href="" download="download">test_file.pdf</a>
-                        <a class="pf pf-img" href="" download="download">test_file.png</a>
-                        <a class="pf pf-default" href="" download="download">test_file.bin</a>
-                    </div>
-                    <?php if (count($project["attachments"]) > 0) {
-                        displayAttachments($project["attachments"]);
-                    } ?>
-                </div>
-                <?php
-            }
-        } else {
-            echo "Il n'y a aucun projet à afficher.";
-        }
-    }*/
 
 }

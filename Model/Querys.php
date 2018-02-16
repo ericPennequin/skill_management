@@ -5,41 +5,45 @@
  * Date: 12/02/2018
  * Time: 10:40
  */
-
-require "../inc/pdo.php";
-
+if (basename($_SERVER['PHP_SELF']) == "index.php")
+    require_once("inc/pdo.php");
+else
+    require_once("../inc/pdo.php");
 
 $data = $_REQUEST;
 
-$data['command'] = $_REQUEST['command'];
+if (isset($_REQUEST['command']))
+    $data['command'] = $_REQUEST['command'];
+else
+    $data['command'] = "";
 
 /**
-*
-* Return json
+ *
+ * Return json
  * TEST OK
  *
  */
-if ($data['command']=='adminView'){
+if ($data['command'] == 'adminView') {
     try {
-        $request=$dbh->query("SELECT picture,status,id_person,firstname,lastname,email,cell_number, establishment.id_establishment, establishment.name, establishment.city 
+        $request = $dbh->query("SELECT picture,status,id_person,firstname,lastname,email,cell_number, establishment.id_establishment, establishment.name, establishment.city 
             FROM person
             JOIN establishment ON person.id_establishment=establishment.id_establishment 
             WHERE person.status=1");
-        $return=$request->fetchAll();
-        for ($idx=0;$idx<count($return);$idx++){
-            $subResult['id_person']=$return[$idx]['id_person'];
-            $subResult['firstname']=$return[$idx]['firstname'];
-            $subResult['lastname']=$return[$idx]['lastname'];
-            $subResult['cell_number']=$return[$idx]['cell_number'];
-            $subResult['email']=$return[$idx]['email'];
-            $subResult['picture']=$return[$idx]['picture'];
-            $subResult['establishment_name']=$return[$idx]['name'];
-            $subResult['city']=$return[$idx]['city'];
+        $return = $request->fetchAll();
+        for ($idx = 0; $idx < count($return); $idx++) {
+            $subResult['id_person'] = $return[$idx]['id_person'];
+            $subResult['firstname'] = $return[$idx]['firstname'];
+            $subResult['lastname'] = $return[$idx]['lastname'];
+            $subResult['cell_number'] = $return[$idx]['cell_number'];
+            $subResult['email'] = $return[$idx]['email'];
+            $subResult['picture'] = $return[$idx]['picture'];
+            $subResult['establishment_name'] = $return[$idx]['name'];
+            $subResult['city'] = $return[$idx]['city'];
             //$subResult['status']=$return[$idx]['status'];
-            $result[]=$subResult;
+            $result[] = $subResult;
         }
         //$subResult['']=$return[$idx][''];
-        $resultJson=json_encode($result);
+        $resultJson = json_encode($result);
         echo $resultJson;
         /*V pour test
         $userProfilUpdate=$dbh->exec("UPDATE person
@@ -62,8 +66,8 @@ if ($data['command']=='adminView'){
             AND city='Tours')
          WHERE id_person = 3
          * */
-    }catch(Exception $e){
-        die('Erreur: '.$e->getMessage());
+    } catch (Exception $e) {
+        die('Erreur: ' . $e->getMessage());
     }
 }
 
@@ -432,7 +436,6 @@ if ($data['command'] == 'deleteUser') {
 
 function getQuery($command, $params)
 {
-
     global $dbh;
     $data['command'] = $command;
     $data[$params[0]] = $params[1];

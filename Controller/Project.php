@@ -156,4 +156,25 @@ class Project
             echo "Il n'y a aucune compétence à afficher.";
         }
     }
+
+    /**
+     * Affiche la description d'un projet
+     * @param string $description la description du projet
+     * @param int $id l'identifiant du projet
+     */
+    function displayDescription()
+    {
+        if (strlen($this->description) > 340) {
+            $maxChars = 350;
+            $strStart = substr($this->description, 0, $maxChars);
+            $strEnd = substr($this->description, $maxChars);
+            ?>
+            <span class="description-start description-hidden" data-description-start="<?= $this->id ?>"><?= $strStart ?></span>
+            <a class="show-more" data-description-id="<?= $this->id ?>" href="#pp-<?= $this->id ?>">En savoir plus</a>
+            <span class="description-end" data-description-end="<?= $this->id ?>"><?= $strEnd ?></span>
+        <?php } else {
+            echo $this->description;
+        }
+
+    }
 }
